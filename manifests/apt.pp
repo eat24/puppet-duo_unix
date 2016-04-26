@@ -30,7 +30,8 @@ class duo_unix::apt {
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    content => "deb ${repo_uri}/${::operatingsystem} ${::lsbdistcodename} main",
+    # temporarily hardcode trusty until a xenial repo is ready
+    content => "deb ${repo_uri}/${::operatingsystem} trusty main",
     notify  => Exec['duo-security-apt-update']
   }
 
